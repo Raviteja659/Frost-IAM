@@ -1,25 +1,41 @@
 {
   "name": "frost-iam",
   "version": "1.0.0",
-  "main": "index.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "directories": {
     "doc": "docs",
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx hardhat test",
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat run scripts/deploy.js --network localhost",
+    "test:aws": "npx hardhat test test/aws-integration.test.js",
+    "node": "npx hardhat node"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "blockchain",
+    "iam",
+    "aws",
+    "ethereum"
+  ],
+  "author": "Ravi Teja Gandu",
+  "license": "MIT",
+  "description": "Decentralized Cloud Resource Access Control using Multi-Signature Smart Contracts with Threshold Cryptography",
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
-    "@nomiclabs/hardhat-ethers": "^2.2.3",
-    "@nomiclabs/hardhat-waffle": "^2.0.6",
-    "@openzeppelin/contracts": "^5.4.0",
-    "@openzeppelin/contracts-upgradeable": "^5.4.0",
-    "dotenv": "^17.2.3",
-    "hardhat": "^3.0.7"
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "hardhat": "^2.26.3",
+    "@openzeppelin/contracts": "^5.0.0",
+    "@openzeppelin/contracts-upgradeable": "^5.0.0",
+    "dotenv": "^16.0.0",
+    "chai": "^4.3.7",
+    "ethers": "^6.14.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-iam": "^3.906.0",
+    "@aws-sdk/client-sts": "^3.906.0",
+    "aws-sdk": "^2.1692.0"
   }
 }
